@@ -1,0 +1,113 @@
+{% extends 'aplicacion1/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">   
+          <h2></h2>
+          <ol>
+            <li>Home</li>
+            <li><a href="#">Proyecto Anual</a></li>
+          </ol>
+        </div>       
+        </div>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+           <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+        <div class="container" data-aos="fade-up">
+       
+              {% for p in anualId %}
+            <div class="section-title">
+              <h2>Proyecto Actual</h2>
+              <p>{{p.titulo}}</p>
+            </div>
+            <div class="col-lg-12 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+              <p class="font-italic text-justify">
+                {{p.descripcion}}
+              </p>   
+            </div>
+            <br/>
+             
+        </div>
+    
+        <br/>
+      
+
+            {% for promo in project %}   
+                {% if p.id == promo.proyectoAnual.id %}  
+              
+                        <div id="about" class="container about sombraProyecto" data-aos="fade-up">
+                          <div class="row">
+                                                                                    
+                               <div class="col-lg-4 order-1 order-lg-1" data-aos="fade-left" data-aos-delay="100">
+                                        <div class="portfolio-wrap">
+                                          <img src="{{promo.imagen.url}}" class="img-fluid" alt="">            
+                                          <div class="portfolio-info">
+                                             <p>{{promo.nombreProyecto}}</p>                                                        
+                                            <div class="portfolio-links">
+                                              <a target="_blank" href="{{promo.link}}" title="Ver Video"><i class="icofont-ui-video-play"></i></a>
+                                              <a target="_blank" href="{% url 'aplicacion1:proyecto' promo.id %}" title="Ver Fotos"><i class="icofont-ui-camera"></i></a>
+                                            </div>                
+                                          </div>              
+                                        </div>                                                                    
+                              </div>                       
+                                                         
+                              <div class="col-lg-4 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+                                    <h3 class="text-uppercase">{{promo.nombreProyecto}}.</h3>
+                                    <p class="font-italic text-justify">{{promo.descripcion}}</p>
+                                    <dl>
+                                          {% autoescape off%}
+                                              <ul>
+                                                <li><i class="ri-check-double-line"></i> {{promo.logros}}  </li>
+                                                <li><i class="bx bx-photo-album"></i> <a target="_blank" href="{% url 'aplicacion1:proyecto' promo.id %}" title="Más Detalles">Ver Misceláneas</a></li>
+                                              </ul>
+                                          {% endautoescape %}                                              
+                                    </dl>
+                              </div>
+                              <br/>
+                              <div class="col-lg-4 pt-4 pt-lg-0 order-3 order-lg-3 content" data-aos="fade-right" data-aos-delay="100">
+                                    <dl>
+                                        <dt >Entidad a Cargo:</dt>                                                                          
+                                            <div class="col-md-12 text-center">
+                                                <div class="product"><br>                                            
+                                                    <a target="_blank" href="{{promo.entidades.link}}" title="Más Detalles"><img src="{{promo.entidades.logo.url}}" class="img-responsive" alt="#"></a>
+                                                </div>
+                                            </div>                                                    
+                                          
+                                    </dl>
+                              </div>  
+                              <br/>                   
+                          </div>
+                        </div>
+
+                              <br/>
+
+                             
+
+                        </div>
+            {% endif %} 
+        {% endfor %} 
+        {% endfor %}
+        <br/>
+
+       </section>
+
+</main>
+
+
+
+   <script>
+        function Barrita() {
+            $('#proA').addClass('active');
+        }
+        window.onload = Barrita
+    </script>
+
+{% endblock content %}

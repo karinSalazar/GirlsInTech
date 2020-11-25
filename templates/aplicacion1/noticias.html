@@ -1,0 +1,96 @@
+{% extends 'aplicacion1/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <h2></h2>
+          <ol>
+            <li>Home</li>
+            <li><a href="#">Noticias</a></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+            
+     
+
+
+                <section id="services" class="services">
+                  <div class="container" data-aos="fade-up">
+
+                        <div class="section-title">
+                          <h2>Noticias</h2>
+                          <p>Últimas Noticias</p>
+                        </div>
+
+                        <div class="container blog">
+                            <div class="row">
+                                <div class="col-12 col-lg-12">
+                                    {% for p in prensa %}
+                                    <!-- Single Blog Item -->
+                                    <div class="row align-items-center">
+                                        <div class="col-md-4 mt-4 img-fluid">
+                                            <img src="{{ p.imagen.url }}" class="Rounded Corners" alt="...">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body p-0">
+                                                <h6 class="card-title text-center mt-4 text-uppercase" >{{ p.titulo }}</h6>
+                                                  {% if p.fecha == null %}
+                                                <p class="card-text"><small class="text-muted">{{ p.created }} by {{p.creado_por}} </small></p>
+                                                  {% else %}
+                                                <p class="card-text"><small class="text-muted">{{ p.fecha }} by {{p.creado_por}} </small></p>
+                                                  {% endif %} 
+                                                <p class="card-text mb-0 text-justify">{{ p.descripcion|truncatechars:213 }}</p>
+                                                <a class="button button-skin" href="{% url 'aplicacion1:infonoticia' p.id %}">Leer más...</a>
+                                            </div>
+                                            <br/>  
+                                        </div>
+                                        <br/>
+                                    </div>
+                                    {% endfor %}
+                                    <br/>
+
+
+                                    <!-- Pagination -->
+                                    <nav class="dento-pagination mb-5 mt-5">
+                                        <ul class="pagination pagination-lg  justify-content-center mt-4">
+                                            <li class="page-item active">
+                                                {% if page_obj.has_previous %}
+                                                <a class="page-link" href="?page={{page_obj.previous_page_number}}"><i class="icofont-arrow-left"></i></a> {% endif %}
+                                            </li>
+                                            <li class="page-item">
+                                                {% if page_obj.has_next %}
+                                                <a class="page-link" href="?page={{page_obj.next_page_number}}"><i class="icofont-arrow-right"></i></a> {% endif %}
+                                            </li>
+
+                                        </ul>
+                                    </nav>
+
+                                </div>
+
+                              
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+</main>
+
+ 
+
+      
+  <script>
+        function Barrita() {
+            $('#not').addClass('active');
+        }
+        window.onload = Barrita
+    </script>
+
+                    
+{% endblock content %}

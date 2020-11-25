@@ -1,0 +1,81 @@
+{% extends 'aplicacion1/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <h2></h2>
+          <ol>
+            <li>Home</li>
+            <li><a href="{% url 'aplicacion1:noticia'  %}">Noticias</a></li>
+            <li><a href="#">Detalle de la Noticia</a></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+            
+
+    <section id="services" class="services">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Noticias</h2>
+                <p>Últimas Noticias</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container" data-aos="fade-up">
+
+        <div class="portfolio-details-container">
+
+            <div class="col-md-12 mt-8 img-fluid ">
+                <img src="{{ info.imagen.url }}" class="Rounded Corners" alt="...">
+            </div>
+
+            <div class="portfolio-info">
+              <h3 class="text-uppercase text-justify">{{ info.titulo }}</h3>
+                <ul>
+                  <li><strong>Autor </strong>: {{ info.creado_por }}</li>
+                  {% if info.fecha == null %}
+                  <li><strong>Fecha </strong>: {{ info.created }} </li>
+                  {% else %}
+                  <li><strong>Fecha </strong>: {{ info.fecha }} </li>
+                  {% endif %} 
+                  <li><strong>Vínculos </strong>: <a href="{{info.link}}"  target="_blank" title="Más Detalles"><i class="bx bx-link"></i></a>
+                                                  <a href="../../static/img/{{info.imagen}}" data-gall="portfolioGallery" class="venobox" title="Ver Imagen"><i class="bx bx-plus"></i></a></li>
+                </ul>
+            </div>
+
+        </div>               
+         <br/>
+        <div class="portfolio-description">
+          <h2 class="text-uppercase text-center">{{ info.titulo }}</h2>
+          <p class="text-justify">
+            {{ info.body }}.
+          </p>
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+
+</main>
+
+      
+  <script>
+        function Barrita() {
+            $('#not').addClass('active');
+        }
+        window.onload = Barrita
+    </script>
+
+{% endblock content%}

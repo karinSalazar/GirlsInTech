@@ -1,0 +1,351 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Hackatone</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/logo_red.jpg' %}" rel="icon" style="width:220px;"> 
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/venobox/venobox.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <link href="{% static 'css/zerogrid.css' %}" rel="stylesheet" media="all" type="text/css">
+  <link href="{% static 'css/style2.css' %}" rel="stylesheet" media="all" type="text/css">
+
+  <link href="{% static 'css/style3.css' %}" rel="stylesheet" media="all" type="text/css">
+  <link href="{% static 'css/animate.css' %}" rel="stylesheet" media="all" type="text/css">
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css"> 
+  <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
+
+  <link href="{% static 'css/jquery.mb.ytplayer.min.css' %}" rel="stylesheet" media="all" type="text/css">
+  
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Gp - v2.0.0
+  * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="index.html"><img src="{% static 'img/logo_red.png' %}" class="logito"></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="{% url 'inicio' %}">Home</a></li>
+          <li><a href="{% url 'aplicacion1:nosotros'  %}">Nosotros</a></li>
+
+          <li class="drop-down"><a href="">Categorias</a>
+            <!--<ul>
+              {% for pro in anual %} 
+                  <li class="drop-down"><a href="{% url 'aplicacion1:proyectoAnual' pro.id %}">{{pro.titulo}}</a>
+                    <ul>
+                      {% for promo in project %}   
+                        {% if pro.id == promo.proyectoAnual.id %}  
+                          <li><a href="{% url 'aplicacion1:proyecto' promo.id %}">{{promo.nombreProyecto}}</a></li>
+                        {% endif %} 
+                      {% endfor %}
+                    </ul>
+                  </li>
+              {% endfor %}
+            </ul>-->
+          </li>
+
+          <li><a href="{% url 'aplicacion1:noticia'  %}">Blog</a></li>       
+          <li><a href="{% url 'aplicacion1:contacto'  %}">Contacto</a></li>
+
+        </ul>
+      </nav><!-- .nav-menu -->
+
+      </div>
+  </header><!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+
+  {% if videofile %}
+
+  <section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container-fluid" data-aos="fade-up">
+        <video class="video-fluid z-depth-300 " autoplay loop controls muted>
+            <source class="embed-responsive-item" src=' {{ MEDIA_URL }}{{ videofile }} ' type='video/mp4 ' 
+                allowfullscreen="" frameborder="5000|300000" />
+        </video>
+
+       
+
+    </div>
+
+    <script>
+        'undefined ' === typeof _trfq || (window._trfq = []);
+        'undefined ' === typeof _trfd && (window._trfd = []), _trfd.push({
+            'tccl.baseHost ': 'secureserver.net '
+        }), _trfd.push({
+            'ap ': 'cpsh '
+        }, {
+            'server ': 'p3plcpnl0769 '
+        })
+    </script>
+</section>
+{% endif %}
+<br><br>
+  
+  <main id="main">
+ 
+<
+
+<!--=======fin proyecto del año=======-->
+
+ 
+<!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="owl-carousel testimonials-carousel">
+          {% for t in testi %}
+          <div class="testimonial-item">
+            <img src="../../static/img/{{t.foto}}" class="testimonial-img" alt="">
+            <h3 class="text-capitalize">{{ t.nombre }}</h3>
+            <h4 class="text-uppercase">{{ t.proyecto }}</h4>
+            <h4 class="text-capitalize">{{ t.entidad }}</h4>
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              {{ t.texto }}.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </section>
+<!--======= End Testimonials Section ======== -->
+
+  <br/>
+
+    
+<!--========agregado start noticias========-->
+
+         
+      <section id="features" class="features">
+      <br/>
+      <div class="container" data-aos="fade-up">
+            
+            <div class="header wow fadeInUp" data-wow-delay=".1s" data-wow-duration="1s">
+              <h2 class="text-center">N O T I C I A S</h2>
+              <span class="intro text-center">Últimas Noticias...</span>
+            </div>
+
+            <br/>
+            <div class="content wow fadeInRight" data-wow-delay=".1s" data-wow-duration="1s">
+               <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+                        <!--Slides-->
+                        <div class="carousel-inner" role="listbox">
+                            <!--First slide-->
+                            {% for p in prensa %} 
+                                                {% cycle 'start' '' '' as slidestart silent %} {% cycle '' '' 'end' as slideend silent %} 
+                            {% if slidestart == 'start' %}
+                            <div class="carousel-item {% if forloop.first %} active {% endif %}">
+                                <div class="row justify-content-around">
+                            {% endif %}
+                                    <div class="col-md-4"> 
+                                        <div class="testimonial">
+                                            <!--Avatar-->
+                                            <div class="avatar mx-auto d-flex justify-content-center objetnoticia">
+                                              <img src="../../static/img/{{p.imagen}}" class="img-fluid" />
+                                            </div>
+                                            <!--Content-->
+                                            
+                                            <div class="col-md-12 text-justify entry-des">
+                                                <h5 class="font-weight-bold mt-4 colorN text-uppercase text-center"> {{ p.titulo }}</h5>                               
+                                                <span><a> {{ p.fecha }} </a></span>
+                                                <p class="font-weight-normal">{{p.descripcion}}</p>
+                                            </div>
+                                        </div>
+                                        <a class="button button-skin centrado" href="{% url 'aplicacion:infonoticia' p.id %}" target="_blank">Leer Más</a>
+                                    </div>
+
+                                    <!-- Comprueba cierre de slide-->
+                            {% if slideend == 'end' or forloop.last %}
+
+                                                     
+                          
+
+                                </div>
+                            </div>
+                            {% endif %} 
+                            {% endfor %}
+                        </div>
+                        <!--Slides-->
+                    </div>
+                </div>
+                <!--Carousel Wrapper-->
+       </div>
+                <!-- Grid row -->
+      </section>
+
+
+<!--========agregado end noticias========-->
+                  
+     
+
+<!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact box-style-1">
+      <div class="container" data-aos="fade-up">
+
+        <div class="header wow fadeInUp" data-wow-delay=".1s" data-wow-duration="1s">
+          <h2 class="text-center">C O N T Á C T A N O S</h2>
+        </div>
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              {% for n in nos %}
+              <div class="email">
+                <i class="icofont-envelope"></i>
+                <h4>Correo:</h4>
+                <p>{{n.mail}}</p>
+              </div>
+              
+              <div class="phone">
+                <i class="icofont-phone"></i>
+                <h4>Teléfono:</h4>
+                <p>+34 {{n.tel}}</p>
+              </div>
+              {% endfor %}
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form name="form1" method="post" action=""> {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.contact_name }}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.contact_email }}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    {{ form.subject }}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    {{ form.message }}
+                  </div>            
+                  <button type="submit" class="btn btn-skin btn-block recp get-started-btn scrollto" name="submitcontact" id="submitcontact"> <p class="font-weight-bold">Enviar</p> </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          {% for n in nos %} 
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3 class="logo"><img src="{% static 'img/logo_red.png' %}"></h3>
+              <p>
+                <strong>Phone:</strong> +34 {{n.tel}}<br>
+                <strong>Email:</strong> {{n.mail}} <br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="{{n.twitter}}" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="{{n.facebook}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="{{n.instagram}}" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="{{n.skype}}" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="{{n.linkedin}}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Enlaces Útiles</h4>
+            <br/>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'aplicacion1:nosotros'  %}">Nosotros</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'aplicacion1:noticia'  %}">Blog</a></li>
+            </ul>
+          </div>
+
+                    
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<!--======== End Footer ======== -->
+
+  <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/venobox/venobox.min.js' %}"></script>
+  <script src="{% static 'vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'vendor/counterup/counterup.min.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

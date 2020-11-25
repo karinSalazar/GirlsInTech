@@ -1,0 +1,172 @@
+{% extends 'aplicacion1/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <h2></h2>
+          <ol>
+            <li>Home</li>
+            <li><a href="#">Nosotros</a></li>
+          </ol>
+        </div>
+        
+      </div>
+    </section><!-- End Buscar -->
+		<br/>	
+
+<!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Nosotros</h2>
+          <p>A cerca de nosotros</p>
+        </div>
+        <br/>
+        <div class="row">
+          {% for n in nos %} 
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+              <img src="../../static/img/{{n.imagen}}" class="img-fluid" alt="">
+          </div>
+          
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+            <h3 class="text-uppercase">{{n.titulo}}.</h3>
+
+            <p class="font-italic text-justify"> {{n.description}}. </p>
+            <h5 >¿Quieres contáctarnos?</h5>
+            <br/>
+            <ul>
+              <li><i class="ri-phone-line"></i> {{n.tel}}.</li>
+              <li><i class="ri-mail-line"></i> {{n.mail}}.</li>
+            </ul>
+            <br/>
+            <h5>¿Quienes la conforman?</h5> 
+          </div>          
+          {% endfor %}
+        </div>
+
+      </div>
+
+    </section>     
+<!-- ======= End About Section ======= -->
+
+
+
+
+<!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients">
+          
+      <div class="container" data-aos="zoom-in">
+        <div class="owl-carousel clients-carousel1">
+          {% for e in enti %} 
+           <a target="_blank" href="{{e.link}}" ><img src="../../static/img/{{e.logo}}" alt="" target="_blank" class="img-fluid"></a>                                                
+
+          {% endfor %}
+        </div>
+      </div>      
+    </section>
+<!--======= End Clients Section =======-->
+
+		 
+
+        </div>
+    </section>
+
+
+
+
+
+<!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <br/>
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">          
+          <p class="text-capitalize">Nuestros Requisitos.</p>
+        </div>
+        <br/>
+
+        <div class="row">
+          <div class="image col-lg-6" style="background-image: url({% static 'img/featuresNosotros.jpg' %});" data-aos="fade-right"></div>
+          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+            <div class="icon-box mt-5 mt-lg-0" data-aos="zoom-in" data-aos-delay="150">
+              <i class="icofont-ui-calendar"></i>
+              <h4>Durante un periodo entre 1 a 4 meses.</h4>
+              <p class="text-justify">Con un máximo de 25 horas semanales, los jóvenes participantes realizaran las tareas propias de un puesto de trabajo.</p>
+            </div>
+            <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
+              <i class="icofont-users-alt-2"></i>
+              <h4>Con una edad de entre 16 años y 21 años.</h4>
+              <p class="text-justify">Se trata de un modelo alternativo para permitir que los jóvenes sigan formándose de manera activa y desarrollen habilidades socio-laborales.</p>
+            </div>
+            <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
+              <i class="bx bx-images"></i>
+              <h4>Con documentación en regla.</h4>
+              <p class="text-justify">Llevada a cabo en un entorno empresarial con el fin de mejorar su empleabilidad, involucrando a las empresas en la formación.</p>
+            </div>
+            <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
+              <i class="bx bx-shield"></i>
+              <h4>Jóvenes en riesgo de exclusión social.</h4>
+              <p class="text-justify">Que tengan necesidad de una orientación para poder llegar a definir su proyecto profesional.</p>
+            </div>            
+          </div>
+        </div>
+
+      </div>
+    </section>
+<!-- ======= End Features Section =======-->
+
+
+<!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">          
+          <p class="text-capitalize">Impacto Social.</p>
+        </div>
+        <br/>
+
+        <div class="row no-gutters">
+          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right" data-aos-delay="100"></div>
+          <div class="col-xl-7 pl-0 pl-lg-5 pr-lg-1 d-flex align-items-stretch" data-aos="fade-left" data-aos-delay="100">
+            <div class="content d-flex flex-column justify-content-center">
+             
+              <div class="row">
+                {% for n in numero %}
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="icofont-tick-mark"></i>
+                    <span data-toggle="counter-up estilo">{{ n.dato }}</span>
+                    <p class="text-justify text-lowercase"><strong class="text-capitalize">{{ n.nombre }}</strong>,{{ n.texto }}.</p>
+                  </div>
+                </div>
+                {% endfor %}              
+              </div>
+            </div><!-- End .content-->
+          </div>
+        </div>
+
+      </div>
+    </section>
+<!-- ======= End Counts Section =====-->
+
+    
+
+	<script>
+		
+		
+		function Barrita() {
+			$('#nos').addClass('active');
+        }
+		window.onload = Barrita
+
+
+    </script>
+
+{% endblock content %}
+
+
+
+
+
