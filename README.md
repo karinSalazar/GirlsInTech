@@ -1,2 +1,0 @@
-# GirlsInTech
-Pàgina para niños
