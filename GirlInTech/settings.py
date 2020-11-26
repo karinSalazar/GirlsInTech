@@ -142,8 +142,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp-gotech.alwaysdata.net'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'gotech@alwaysdata.net'
-EMAIL_HOST_PASSWORD = 'tomillo.f5'
+EMAIL_HOST_USER = 'uuuu@yyy.net'
+EMAIL_HOST_PASSWORD = 'xxxxxxx'
 
 
 
